@@ -54,7 +54,7 @@
   5 nomes foi somente uma sugestão ;)
   */
   console.log('\nMeus amigos:');
-  var nomeAmigos = ['Lara', 'Luan', 'Caio', 'Wesley', 'Dante']
+  var nomeAmigos = ['Lara', 'Luan', 'Caio', 'Wesley', 'Dante'];
   nomeAmigos = nomeAmigos.join(', ');
   var lastComma = nomeAmigos.lastIndexOf(', ');
   for (var letter in nomeAmigos) {
@@ -63,19 +63,27 @@
         lastComma + 1);
     }
   }
-  console.log(nomeAmigos);
+  console.log(nomeAmigos, 'são meu amigos!');
+  // OU
 
+  var amigos = ['Lara', 'Luan', 'Caio', 'Wesley', 'Dante'];
+  var amigosReduce = amigos.reduce(function (acumulado, atual, index) {
+    var separador = amigos.length - 1 === index ? ' e ' : ', ';
+    return acumulado + separador + atual
+  }).concat(" são meu amigos!")
+  console.log(amigosReduce);
   /*
   Usando o replace(), faça a string "Roberto" virar "Roberta".
   Mostre o resultado no console.
   */
-  console.log('\nEra "Roberto", agora é:'.replace("Roberto", "Roberta"));
+  console.log('\nEra "Roberto", agora é:', "Roberto".replace("to", "ta"));
 
   /*
   Mostre no console a parte "nando" da string "Fernando". Use o método que
   faz a busca do final para o início da string.
   */
-  console.log('\nParte de uma string:', 'Fernando'.lastIndexOf("nando"));
+  console.log('\nParte de uma string:');
+  console.log('Fernando'.substr(3))
   // ?
 
   /*
@@ -89,8 +97,10 @@
   */
   console.log('\nNome com letras intercaladas entre caixa alta e baixa:');
   var myName = "Davi";
+  var myNewName = [];
   for (var letter in myName) {
-    myName.split(myName[letter])
+    myNewName[letter] = letter % 2 == 0 ? myName[letter].toLowerCase() :
+      myName[letter].toUpperCase()
   }
-
+  console.log(myNewName.join(''));
 })()
